@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'todo_api_cli'
+
+TodoApi::Cli::Users.create
