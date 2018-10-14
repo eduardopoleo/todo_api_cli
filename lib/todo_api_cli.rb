@@ -1,5 +1,5 @@
 module TodoApi
-  class Client
+  class Cli
     class Users
       def self.create
         puts 'Creating an user'

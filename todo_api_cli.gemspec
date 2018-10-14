@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.date = %q{2018-10-13}
   s.summary = %q{CLI to interact with the todo app api}
   s.files = [
-    "lib/todo_api.rb"
+    "lib/todo_api_cli.rb"
   ]
   s.require_paths = ["lib"]
   s.authors = ['Eduardo Poleo']
