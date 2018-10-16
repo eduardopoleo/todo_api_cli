@@ -2,4 +2,10 @@
 
 require 'todo_api_cli'
 
-TodoApi::Cli::Users.create
+if ARGV.size != 3
+  puts 'Creating users requires name, email, password'
+
+  exit(1)
+end
+
+TodoApi::Cli::Users.create(name: ARGV[0], email:  ARGV[1], password:  ARGV[2])

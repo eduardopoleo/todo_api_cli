@@ -10,4 +10,9 @@ Gem::Specification.new do |s|
   s.bindir = "bin"
   s.authors = ['Eduardo Poleo']
   s.executables = ['create_user']
+
+  s.add_development_dependency "bundler", "~> 1.15"
+  s.add_development_dependency "pry", "~> 0.10.4"
+  s.add_dependency "faraday"
+  s.add_dependency "faraday_middleware"
 end
