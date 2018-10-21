@@ -15,11 +15,11 @@ module TodoApi
 
       def self.client
         @@conn ||= Faraday.new(url: TodoApi::API_URL) do |f|
-          f.request  :url_encoded             # form-encode POST params
-          f.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-          f.request  :url_encoded 
+          f.request  :url_encoded         
+          f.adapter  Faraday.default_adapter
+          f.request  :url_encoded
           f.request  :json
-          f.response :json, content_type: /\bjson$/ 
+          f.response :json, content_type: /\bjson$/
         end
       end
     end

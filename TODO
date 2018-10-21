@@ -1,0 +1,10 @@
+sign_up
+  -> pass 3 params
+  -> enters a wizard that does it step by step
+
+-> the api returns a token
+  -> store the token in redis
+
+
+
+

@@ -4,21 +4,28 @@ PATH
     todo_api_cli (0.0.2)
       faraday
       faraday_middleware
+      ruby-keychain
 
 GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.2)
+    corefoundation (0.2.0)
+      ffi
     faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
+    ffi (1.9.25)
     method_source (0.8.2)
     multipart-post (2.0.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    ruby-keychain (0.3.2)
+      corefoundation (~> 0.2.0)
+      ffi
     slop (3.6.0)
 
 PLATFORMS
