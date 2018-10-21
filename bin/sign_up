@@ -9,16 +9,18 @@ def prompt(*args)
 end
 
 if ARGV.size != 3
-  name = prompt 'Enter name: '
-  email = prompt 'Enter email: '
-  password = prompt 'Enter password: '
+  name = prompt('Enter name: ').chomp
+  email = prompt('Enter email: ').chomp
+  password = prompt('Enter password: ').chomp
 else
+  # This should be handled using options e.g -p -n -e 
+  # look into http://ruby-doc.org/stdlib-1.9.3/libdoc/optparse/rdoc/OptionParser.html#class-OptionParser-label-Minimal+example
   name =  ARGV[0]
   email = ARGV[1]
   password = ARGV[2]
 end
 
-response = TodoApi::Cli::Users.create(name: ARGV[0], email:  ARGV[1], password:  ARGV[2])
+response = TodoApi::Cli::Users.create(name: name, email:  email, password:  password)
 
 # stores the token in the computer keychain
 key_chain_item = Keychain.generic_passwords.where(service: 'todo-api').first

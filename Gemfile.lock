@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    todo_api_cli (0.0.2)
+    todo_api_cli (0.0.3)
       faraday
       faraday_middleware
       ruby-keychain
