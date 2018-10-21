@@ -13,6 +13,13 @@ module TodoApi
         end
       end
 
+      def self.login(email:, password:)
+        client.post do |req|
+          req.url '/login'
+          req.body = { email: email, password: password }.to_json
+        end
+      end
+
       def self.client
         @@conn ||= Faraday.new(url: TodoApi::API_URL) do |f|
           f.request  :url_encoded         

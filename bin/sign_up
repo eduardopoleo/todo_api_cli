@@ -31,6 +31,3 @@ if key_chain_item
 else
   Keychain.generic_passwords.create(service: 'todo-api', password: response.body['session_token'])
 end
-
-
-

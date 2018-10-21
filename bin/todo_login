@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'todo_api_cli'
+require 'keychain'
+
+def prompt(*args)
+  print(*args)
+  gets
+end
+
+if ARGV.size != 2
+  email = prompt('Enter email: ').chomp
+  password = prompt('Enter password: ').chomp
+else
+  # TODO: This should be handled using options e.g -p -n -e 
+  # look into http://ruby-doc.org/stdlib-1.9.3/libdoc/optparse/rdoc/OptionParser.html#class-OptionParser-label-Minimal+example
+  email = ARGV[0]
+  password = ARGV[1]
+end
+
+response = TodoApi::Cli::Users.login(email: email, password: password)
+
+# stores the token in the computer keychain
+# require 'pry'; binding.pry
+if response.success?
+  key_chain_item = Keychain.generic_passwords.where(service: 'todo-api').first
+
+  if key_chain_item
+    key_chain_item.password = response.body['session_token']
+    key_chain_item.save!
+  else
+    Keychain.generic_passwords.create(service: 'todo-api', password: response.body['session_token'])
+  end
+
+  puts 'You have succesfully logged in!'
+else
+  puts response.body['error']
+end
