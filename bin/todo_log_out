@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'keychain'
+
+item = Keychain.generic_passwords.where(service: 'todo-api').first
+
+if item
+  item.delete
+end
+
+puts "You've successfully logged out"

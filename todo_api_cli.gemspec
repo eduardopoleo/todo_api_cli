@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{todo_api_cli}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
   s.date = %q{2018-10-13}
   s.summary = %q{CLI to interact with the todo app api}
   s.files = [
@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.bindir = "bin"
   s.authors = ['Eduardo Poleo']
-  s.executables = ['sign_up', 'todo_login']
+  s.executables = ['sign_up', 'todo_login', 'create_list', 'todo_log_out']
 
   s.add_development_dependency "bundler", "~> 1.15"
   s.add_development_dependency "pry", "~> 0.10.4"

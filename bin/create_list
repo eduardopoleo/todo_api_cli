@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'todo_api_cli'
+require 'keychain'
+
+if ARGV.size != 1
+  puts 'You must specify the list name'
+
+  exit(1)
+end
+
+name = ARGV[0]
+
+response = TodoApi::Cli::Lists.create(name: name)
+
+if response.success?
+  puts 'Your list has been created'
+  # TODO: We should also check that we have a token before initiating the call
+elsif response.status == 401
+  puts 'You need to be signed up before you can create lists'
+else
+  puts 'There was an error creating your list. Please try again later.'
+end
+

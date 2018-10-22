@@ -21,7 +21,6 @@ end
 response = TodoApi::Cli::Users.login(email: email, password: password)
 
 # stores the token in the computer keychain
-# require 'pry'; binding.pry
 if response.success?
   key_chain_item = Keychain.generic_passwords.where(service: 'todo-api').first
 
